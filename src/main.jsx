@@ -6,6 +6,6 @@ import Registered from './Registered/Registered.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Registered />
+    <App />
   </StrictMode>,
 )
