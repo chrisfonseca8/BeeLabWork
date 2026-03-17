@@ -35,7 +35,7 @@ const styles = `
     --navy-mid:   #145c33;   /* mid forest green   */
     --navy-soft:  #1e7a45;   /* soft forest green  */
     /* ── Leaf & growth – primary accent ── */
-    --emerald:    #18a352;   /* vibrant leaf green */
+    --emerald:    #24a158ff;   /* vibrant leaf green */
     --emerald-dk: #14834a;   /* deeper leaf green  */
     /* ── Solar gold – energy warmth ── */
     --gold:       #e8980a;   /* warm solar amber   */
@@ -122,7 +122,7 @@ const styles = `
      overlaid with a deep forest-green gradient so all text remains crisp.        */
   .hero-wrap {
     min-height:100vh;
-    position:relative; display:flex; align-items:center; overflow:hidden;
+    position:relative; display:flex; align-items:center;
   }
   .hero-bg-img {
     position:absolute; inset:0; width:100%; height:100%;
@@ -132,7 +132,7 @@ const styles = `
   }
   .hero-overlay {
     position:absolute; inset:0; z-index:1;
-    background: linear-gradient(135deg, rgba(6,28,14,.72) 0%, rgba(11,45,22,.65) 40%, rgba(8,32,18,.80) 100%);
+    background: linear-gradient(135deg, rgba(6,28,14,.42) 0%, rgba(11,45,22,.38) 40%, rgba(8,32,18,.50) 100%);
   }
   /* Subtle solar-panel cell grid overlaid on the photo — ties digital-tech theme to nature */
   .hero-dots {
@@ -141,9 +141,11 @@ const styles = `
     background-size: 100px 75px;
   }
   /* Warm golden glow top-right mimics the sun behind the wind turbines */
-  .hero-glow { position:absolute; top:-80px; right:-60px; width:500px; height:500px; background:radial-gradient(circle, rgba(232,152,10,.22) 0%, rgba(255,180,50,.08) 40%, transparent 70%); pointer-events:none; }
-  /* Soft green ambient bottom-left — lush hills in the photo */
-  .hero-glow-2 { position:absolute; bottom:-80px; left:-60px; width:420px; height:420px; background:radial-gradient(circle, rgba(24,163,82,.16) 0%, transparent 65%); pointer-events:none; }
+  .hero-glow { position:absolute; top:-60px; right:-40px; width:750px; height:750px; background:radial-gradient(circle, rgba(255,200,50,.12) 0%, rgba(232,152,10,.06) 35%, transparent 65%); pointer-events:none; z-index:1; }
+  /* Soft green ambient bottom-left */
+  .hero-glow-2 { position:absolute; bottom:-60px; left:-40px; width:650px; height:650px; background:radial-gradient(circle, rgba(24,200,100,.40) 0%, rgba(24,163,82,.18) 45%, transparent 70%); pointer-events:none; z-index:1; }
+  /* Extra centre glow for luminance */
+  .hero-glow-3 { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:600px; background:radial-gradient(ellipse, rgba(255,255,220,.12) 0%, rgba(200,255,200,.06) 45%, transparent 70%); pointer-events:none; z-index:1; }
   .hero-body {
     position:relative; z-index:2; max-width:1280px; margin:0 auto; width:100%;
     padding:0 2rem; padding-top:114px;
@@ -154,17 +156,17 @@ const styles = `
 
   .hero-eyebrow {
     display:inline-flex; align-items:center; gap:8px;
-    background:rgba(232,152,10,.15); border:1px solid rgba(232,152,10,.4);
-    color:#fdd47a; font-size:.7rem; font-weight:700; text-transform:uppercase;
+    background:rgba(232,152,10,.15); border:1px solid rgba(10, 63, 38, 0.4);
+    color:#006400; font-size:.8rem; font-weight:800; text-transform:uppercase;
     letter-spacing:.18em; padding:.38rem .9rem; border-radius:50px; margin-bottom:1.4rem;
   }
   .hero-eyebrow .pulse { width:7px; height:7px; background:#e8980a; border-radius:50%; animation:pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
   .hero-title { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,4.5vw,3.8rem); font-weight:800; color:#fff; line-height:1.1; margin-bottom:1.5rem; }
-  .hero-title em { font-style:normal; color:#7edfa8; }
-  .hero-sub { font-size:1.05rem; color:rgba(255,255,255,.7); line-height:1.8; max-width:560px; margin-bottom:2.5rem; font-weight:300; }
+  .hero-title em { font-style:normal; color:rgb(26,69,47); text-shadow: 0 0 18px rgba(255,255,255,.9), 0 0 40px rgba(255,255,255,.6), 0 0 80px rgba(255,255,255,.3); }
+  .hero-sub { font-size:1.05rem; color:#0b3d22; line-height:1.8; max-width:560px; margin-bottom:2.5rem; font-weight:800; }
   .hero-chips { display:flex; flex-wrap:wrap; gap:.65rem; margin-bottom:2.5rem; }
-  .hero-chip { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.78); font-size:.8rem; padding:.4rem .9rem; border-radius:50px; }
+  .hero-chip { display:flex; align-items:center; gap:6px; background:rgba(159, 164, 161, 0.07); border:2px solid rgba(23, 14, 14, 0.14); color:rgba(243, 243, 243, 1); font-size:.8rem; padding:.4rem .9rem; border-radius:50px;font-weight:800 }
   .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
   .btn-em { background:#18a352; color:#fff; border:none; padding:.85rem 2rem; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:.88rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; cursor:pointer; text-decoration:none; display:inline-block; transition:all .22s; box-shadow:0 8px 24px rgba(24,163,82,.35); }
   .btn-em:hover { background:#14834a; transform:translateY(-2px); box-shadow:0 12px 32px rgba(24,163,82,.5); }
@@ -173,12 +175,12 @@ const styles = `
 
   /* hero aside card */
   .hero-aside { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:2rem; backdrop-filter:blur(8px); }
-  .hc-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,.1); }
+  .hc-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:800; color:#006400; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,.1); }
   .hc-row { display:flex; align-items:flex-start; gap:12px; padding:.75rem 0; border-bottom:1px solid rgba(255,255,255,.07); }
   .hc-row:last-child { border-bottom:none; padding-bottom:0; }
   .hc-ico { width:36px; height:36px; border-radius:8px; background:rgba(24,163,82,.18); border:1px solid rgba(24,163,82,.3); display:flex; align-items:center; justify-content:center; font-size:.95rem; flex-shrink:0; }
   .hc-lbl { font-size:.63rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#7edfa8; margin-bottom:.12rem; }
-  .hc-val { font-size:.84rem; color:rgba(255,255,255,.75); line-height:1.45; white-space:pre-line; }
+  .hc-val { font-size:.84rem; color:rgba(27, 54, 28, 0.75); line-height:1.45; white-space:pre-line; font-weight:800; }
 
   /* ── SHARED ── */
   .sec { padding:96px 2rem; max-width:1280px; margin:0 auto; }
@@ -628,7 +630,7 @@ const schedule = [
         event:
           "Design and Control of Z-Source Inverter-Based Bidirectional EV Charger for V2G Applications",
         spk: "Dr. Sumant G. Kadwane",
-        inst: "Y.C.C.E., Nagpur University",
+        inst: "Yeshwantrao Chavan College of Engineering.",
         hl: true,
       },
       {
@@ -820,7 +822,7 @@ const speakers = [
   {
     name: "Dr. Sumant G. Kadwane",
     role: "Professor, Electrical Engineering",
-    inst: "Y.C.C.E., Nagpur University",
+    inst: "Yeshwantrao Chavan College of Engineering.",
     topic: "Z-Source Inverter Bidirectional EV Charger for V2G Applications",
     badge: "Invited",
     image: imgSumantKadwane,
@@ -919,7 +921,7 @@ const speakers = [
   },
   {
     name: "Dr. Soumya Chatterjee",
-    role: "Faculty, Electrical Engineering",
+    role: "Associate Proffessor, Electrical Engineering",
     inst: "NIT Durgapur",
     topic:
       "Condition Monitoring of HV Systems with Renewable Energy Integration",
@@ -1285,7 +1287,7 @@ export default function WorkshopPage() {
         <div className="hero-body">
           <div>
             <div className="hero-eyebrow">
-              <span className="pulse" />
+              <span className="pulse " />
               Five Day Faculty developement Programme· BIT Mesra · 2026
             </div>
             <h1 className="hero-title">
@@ -1297,7 +1299,7 @@ export default function WorkshopPage() {
             </h1>
             <p className="hero-sub">
               A comprehensive faculty development programme featuring{" "}
-              <strong style={{ color: "#7edfa8" }}>
+              <strong style={{ color: "#193123ff" }}>
                 18 distinguished speakers
               </strong>{" "}
               from IITs, NITs, Politecnico di Milano, Microsoft, and global
@@ -1316,7 +1318,7 @@ export default function WorkshopPage() {
                 </div>
               ))}
             </div>
-            <div className="hero-btns">
+            <div className="hero-btns" style={{ marginTop: '-1.5rem' }}>
               <a
                 href="#register"
                 className="btn-em"
@@ -1673,7 +1675,7 @@ export default function WorkshopPage() {
                 lineHeight: 1.6,
               }}
             >
-              18 experts from IITs, NITs, Politecnico di Milano, Microsoft &
+              Experts from IITs, NITs, Politecnico di Milano, Microsoft &
               global universities.
               <br />
               <strong style={{ color: "#18a352" }}>Click any card</strong> for
