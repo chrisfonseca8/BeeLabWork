@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ── Professor photo imports ── */
 import imgRajeshGupta from "./assets/images/rajesh_gupta.png";
@@ -223,14 +223,15 @@ const styles = `
   .tag::before { content:''; display:block; width:20px; height:2px; background:var(--emerald); border-radius:1px; }
   .tag.light { color:#7edfa8; }
   .tag.light::before { background:#7edfa8; }
-  .sec-h { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:.7rem; }
+  .sec-h { font-family:'Playfair Display',serif; font-size:clamp(1.4rem,2vw,1.9rem); font-weight:700; color:var(--navy); line-height:1.3; margin-bottom:.7rem; word-wrap:break-word; }
   .sec-h.light { color:#fff; }
   .rule { width:52px; height:3px; background:linear-gradient(to right,var(--emerald),var(--gold)); border-radius:2px; margin-bottom:2rem; }
 
   /* ── ABOUT ──
      Stats panel: deep forest green with a solar-ray sunburst — radiating lines
      like sunlight, representing solar energy generation potential.               */
-  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .about-grid > div { min-width:0; }
   @media(max-width:768px){ .about-grid{grid-template-columns:1fr;gap:2.5rem;} }
   .about-text p { font-size:.98rem; line-height:1.85; color:var(--slate); margin-bottom:.9rem; }
   .about-text strong { color:var(--navy); font-weight:600; }
@@ -830,7 +831,7 @@ const speakers = [
   },
   {
     name: "Dr. Arghya Mitra",
-    role: "Assistant Professor (Gr-I), Electrical Engineering",
+    role: "Assistant Professor, Electrical Engineering",
     inst: "VNIT Nagpur",
     topic: "Energy Management for Sustainable Microgrid",
     badge: "Invited",
@@ -924,7 +925,7 @@ const speakers = [
     role: "Associate Proffessor, Electrical Engineering",
     inst: "NIT Durgapur",
     topic:
-      "Condition Monitoring of HV Systems with Renewable Energy Integration",
+      "Condition Monitoring of HEV Systems with Renewable Energy Integration",
     badge: "Invited",
     image: imgSoumyaChatterjee,
     bio: "Dr. Chatterjee holds a B.E. from Jadavpur University (2009), M.Sc. in Electrical Power Engineering from TU Darmstadt, Germany (2014), and Ph.D. from Jadavpur University (2019). His research focuses on condition monitoring and diagnostic techniques for high voltage electrical systems.",
@@ -975,12 +976,12 @@ const committee = [
   },
   {
     role: "Coordinator",
-    name: "Dr. Debomita Ghosh",
+    name: "Dr. Gauri Shanker Gupta",
     title: "EEE Dept., BIT Mesra, Ranchi",
     initials: "DG",
     contact: {
-      phone: "+91-7001132557",
-      email: "debomita.ghosh@bitmesra.ac.in",
+      phone: "+91-9471301045",
+      email: "gaurishankergupta@bitmesra.ac.in",
     },
   },
   {
@@ -1204,8 +1205,8 @@ export default function WorkshopPage() {
       v: "Emerging Control & Digital Technologies for Sustainable Green Energy",
     },
     { e: "📍", l: "Venue", v: "Dept. of EEE, BIT Mesra, Ranchi" },
-    { e: "🎓", l: "Mode", v: "Offline · Physical" },
-    { e: "📋", l: "Seats", v: "Free · 30 Seats · First Come First Serve" },
+    { e: "🎓", l: "Mode", v: "Online" },
+    { e: "📋", l: "Seats", v: "Limited No. Of Seats. Hurry Up to fix yours." },
   ];
 
   return (
@@ -1365,7 +1366,7 @@ export default function WorkshopPage() {
               {
                 ico: "📧",
                 lbl: "Contact",
-                val: "debomita.ghosh@bitmesra.ac.in",
+                val: "gaurishankergupta@bitmesra.ac.in",
               },
             ].map((r) => (
               <div className="hc-row" key={r.lbl}>
@@ -1394,7 +1395,7 @@ export default function WorkshopPage() {
                 <p>
                   This{" "}
                   <strong>
-                    five-day offline Faculty Development Programme
+                    Five-Day Online Faculty Development Programme
                   </strong>{" "}
                   brings together 18 distinguished speakers from IITs, NITs,
                   international universities, and industry to deliver a rigorous
@@ -1435,7 +1436,7 @@ export default function WorkshopPage() {
                   w: "100%",
                 },
                 { num: "200", lbl: "Maximum Participant Capacity", w: "60%" },
-                { num: "150", lbl: "Registration Fee", w: "5%" },
+                { num: "118", lbl: "Registration Fee(Including GST)", w: "5%" },
                 { num: "3", lbl: "International Speakers", w: "50%" },
               ].map((s) => (
                 <div className="s-item" key={s.num}>
@@ -1484,12 +1485,12 @@ export default function WorkshopPage() {
               {
                 ico: "🧠",
                 h: "AI & Control Systems",
-                d: "AI-based predictive maintenance, robust adaptive control for PV, port-Hamiltonian frameworks, and wind control.",
+                d: "AI-based predictive maintenance, robust adaptive control for PV, port-Hamiltonian frameworks, and windmill control.",
               },
               {
                 ico: "☀️",
                 h: "Renewable Energy Systems",
-                d: "Solar PV grid integration, HV condition monitoring, sustainable energy applications, and RE control techniques.",
+                d: "Solar PV grid integration, HEV condition monitoring, sustainable energy applications, and Renewable Energy control techniques.",
               },
             ].map((o, i) => (
               <div className="obj-card" key={i}>
@@ -1566,7 +1567,7 @@ export default function WorkshopPage() {
             <p
               style={{ color: "#64748b", fontSize: ".95rem", lineHeight: 1.75 }}
             >
-              Five days of expert talks and hands-on labs.&nbsp;
+              Five days of expert talks.&nbsp;
               <strong style={{ color: "#18a352" }}>
                 Click any session row
               </strong>{" "}
@@ -1762,7 +1763,7 @@ export default function WorkshopPage() {
                 ico: "⏱",
                 lbl: "Format",
                 val: "Five Day Workshop",
-                sub: "Offline · Physical Mode · Hands-on Training",
+                sub: "Online · Hands-on Training",
               },
               {
                 ico: "🎓",
@@ -1773,13 +1774,13 @@ export default function WorkshopPage() {
               {
                 ico: "👥",
                 lbl: "Capacity",
-                val: "Maximum 30 Seats",
-                sub: "First come first serve",
+                val: "Maximum 200 Seats",
+                sub: "Book you seat now.",
               },
               {
                 ico: "💰",
                 lbl: "Fee",
-                val: "No Registration Fee",
+                val: "100 + 18(GST) = 118 rs.",
                 sub: "Free for all eligible participants",
               },
             ].map((e) => (
@@ -1816,7 +1817,7 @@ export default function WorkshopPage() {
             <p
               style={{ color: "#64748b", fontSize: ".95rem", lineHeight: 1.75 }}
             >
-              Free registration. Limited to 30 seats — first come first serve.
+              200 Seats available. Book fast to capture your place.
               Last date: <strong>15 May 2026</strong>.
             </p>
           </div>
