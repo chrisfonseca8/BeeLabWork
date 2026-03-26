@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ── Professor photo imports (unchanged) ── */
 import imgRajeshGupta from "./assets/images/rajesh_gupta.png";
@@ -19,6 +19,10 @@ import imgPratyushAnand from "./assets/images/pratyush_anand.png";
 import imgDeepakKumar from "./assets/images/deepak_kumar.png";
 import imgLesediMasisi from "./assets/images/lesedi_masisi.png";
 import imgGruosso from "./assets/images/gruosso.png";
+import vc from "./assets/images/vc.jpg";
+import gail from "./assets/images/gail.jpeg";
+import gssir2 from "./assets/images/gssir2.png";
+import sourabh from "./assets/images/sourabh.jpg";
 import whiteBg from "./assets/images/white bg.png";  /* hero background — unchanged */
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -419,7 +423,7 @@ const styles = `
   @media(max-width:520px){ .cm-grid { grid-template-columns: 1fr; } }
   .cm-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 12px; padding: 1.75rem 1.5rem; text-align: center; transition: all .28s; }
   .cm-card:hover { background: rgba(255,255,255,.12); border-color: rgba(126,223,168,.4); transform: translateY(-4px); }
-  .cm-av { width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 1rem; background: linear-gradient(135deg,#18a352,#0e7fc0); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: #fff; border: 2px solid rgba(126,223,168,.4); }
+  .cm-av { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1rem; background: linear-gradient(135deg,#18a352,#0e7fc0); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: #fff; border: 2px solid rgba(126,223,168,.4); }
   .cm-role    { font-size: .63rem; font-weight: 900; text-transform: uppercase; letter-spacing: .14em; color: #7edfa8; margin-bottom: .3rem; }
   .cm-name    { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 900; color: #fff; margin-bottom: .25rem; line-height: 1.3; }
   .cm-title   { font-size: .76rem; color: rgba(255,255,255,.52); line-height: 1.5; white-space: pre-line; }
@@ -974,15 +978,28 @@ export default function App() {
       {/* ── NAVBAR ── */}
       <nav className={`nb${scrolled ? " scrolled" : ""}`}>
         <div className="nb-inner">
-          <a className="nb-brand" href="#home" onClick={e => { e.preventDefault(); go("home"); }}>
-            <div className="nb-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/Birla_Institute_of_Technology_Mesra.png" alt="BIT Mesra" />
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            <a className="nb-brand" href="#home" onClick={e => { e.preventDefault(); go("home"); }}>
+              <div className="nb-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/Birla_Institute_of_Technology_Mesra.png" alt="BIT Mesra" />
+              </div>
+              <div>
+                <div className="nb-name">BIT Mesra</div>
+                <div className="nb-sub">Dept. of EEE</div>
+              </div>
+            </a>
+            
+            {/* GAIL Sponsor Logo */}
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", paddingLeft: "1.5rem", borderLeft: "2px solid rgba(11, 61, 34, 0.15)", height: "44px" }}>
+              <div style={{ height: "40px", display: "flex", alignItems: "center", backgroundColor: "#fff", borderRadius: "4px" }}>
+                <img src={gail} alt="GAIL Logo" style={{ height: "100%", width: "auto", objectFit: "contain", mixBlendMode: "multiply" }} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <span style={{ fontSize: "0.65rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--slate)", lineHeight: 1.2 }}>Sponsored by</span>
+                <span style={{ fontSize: "1.1rem", fontFamily: "'Playfair Display', serif", fontWeight: 1000, color: "var(--navy)", lineHeight: 1.1 }}>GAIL</span>
+              </div>
             </div>
-            <div>
-              <div className="nb-name">BIT Mesra</div>
-              <div className="nb-sub">Dept. of EEE</div>
-            </div>
-          </a>
+          </div>
           <button className="nb-toggle" onClick={() => setMenuOpen(o => !o)}>
             <span /><span /><span />
           </button>
@@ -1339,7 +1356,35 @@ export default function App() {
           <div className="cm-grid">
             {committee.map((m, i) => (
               <div className="cm-card" key={i}>
-                <div className="cm-av">{m.initials}</div>
+                <div className="cm-av">
+                  {i === 0 ? (
+                    <img
+                      src={vc}
+                      alt={m.name}
+                      style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : i === 1 ? (
+                    <img
+                      src={imgSKMishra}
+                      alt={m.name}
+                      style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : i === 2 ? (
+                    <img
+                      src={gssir2}
+                      alt={m.name}
+                      style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : i === committee.length - 1 ? (
+                    <img
+                      src={sourabh}
+                      alt={m.name}
+                      style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : (
+                    m.initials
+                  )}
+                </div>
                 <div className="cm-role">{m.role}</div>
                 <div className="cm-name">{m.name}</div>
                 <div className="cm-title">{m.title}</div>
