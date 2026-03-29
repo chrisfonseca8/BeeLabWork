@@ -17,10 +17,11 @@ import imgSoumyaChatterjee from "./assets/images/soumya_chatterjee.png";
 import imgAdityaGautam from "./assets/images/aditya_gautam.png";
 import imgPratyushAnand from "./assets/images/pratyush_anand.png";
 import imgDeepakKumar from "./assets/images/deepak_kumar.png";
-import imgLesediMasisi from "./assets/images/lesedi_masisi.png";
+import imgTGhosh from "./assets/images/tghosh.jpeg";
 import imgGruosso from "./assets/images/gruosso.png";
 import vc from "./assets/images/vc.jpg";
 import gail from "./assets/images/gail.jpeg";
+import crlogo from "./assets/images/crlogo.jpeg";
 import gssir2 from "./assets/images/gssir2.png";
 import sourabh from "./assets/images/sourabh.jpg";
 import whiteBg from "./assets/images/white bg.png";  /* hero background — unchanged */
@@ -156,9 +157,9 @@ const styles = `
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(
       135deg,
-      rgba(5, 22, 12, 0.78) 0%,
-      rgba(8, 38, 18, 0.70) 45%,
-      rgba(6, 28, 14, 0.80) 100%
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(240, 253, 246, 0.85) 50%,
+      rgba(125, 241, 172, 0.88) 100%
     );
   }
   .hero-dots {
@@ -166,8 +167,8 @@ const styles = `
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='75' viewBox='0 0 100 75' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='44' height='32' rx='2' fill='none' stroke='rgba(255%2C210%2C80%2C0.06)' stroke-width='0.8'/%3E%3Crect x='54' y='2' width='44' height='32' rx='2' fill='none' stroke='rgba(255%2C210%2C80%2C0.06)' stroke-width='0.8'/%3E%3Crect x='2' y='41' width='44' height='32' rx='2' fill='none' stroke='rgba(255%2C210%2C80%2C0.06)' stroke-width='0.8'/%3E%3Crect x='54' y='41' width='44' height='32' rx='2' fill='none' stroke='rgba(255%2C210%2C80%2C0.06)' stroke-width='0.8'/%3E%3C/svg%3E");
     background-size: 100px 75px;
   }
-  .hero-glow   { position: absolute; top: -60px; right: -40px; width: 750px; height: 750px; background: radial-gradient(circle, rgba(255,200,50,.10) 0%, rgba(232,152,10,.05) 35%, transparent 65%); pointer-events: none; z-index: 1; }
-  .hero-glow-2 { position: absolute; bottom: -60px; left: -40px; width: 650px; height: 650px; background: radial-gradient(circle, rgba(24,200,100,.28) 0%, rgba(24,163,82,.12) 45%, transparent 70%); pointer-events: none; z-index: 1; }
+  .hero-glow   { position: absolute; top: -60px; right: -40px; width: 750px; height: 750px; background: radial-gradient(circle, rgba(232,152,10,.08) 0%, rgba(232,152,10,.03) 35%, transparent 65%); pointer-events: none; z-index: 1; }
+  .hero-glow-2 { position: absolute; bottom: -60px; left: -40px; width: 650px; height: 650px; background: radial-gradient(circle, rgba(24,163,82,.12) 0%, rgba(24,163,82,.05) 45%, transparent 70%); pointer-events: none; z-index: 1; }
   .hero-body {
     position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%;
     padding: 0 2rem; padding-top: 114px;
@@ -177,38 +178,36 @@ const styles = `
 
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(232,152,10,.15); border: 1px solid rgba(10,63,38,.4);
-    color: #7edfa8; font-size: .8rem; font-weight: 900; text-transform: uppercase;
+    background: rgba(20, 131, 74, 0.08); border: 1px solid rgba(20, 131, 74, 0.15);
+    color: var(--emerald-dk); font-size: .8rem; font-weight: 900; text-transform: uppercase;
     letter-spacing: .18em; padding: .38rem .9rem; border-radius: 50px; margin-bottom: 1.4rem;
   }
-  .hero-eyebrow .pulse { width: 7px; height: 7px; background: #e8980a; border-radius: 50%; animation: pulse 2s infinite; }
+  .hero-eyebrow .pulse { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
 
   /* ★ FIX 1 — title & sub are now white for readability on dark overlay */
   .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-    font-weight: 900; color: yellow; line-height: 1.1; margin-bottom: 1.5rem;
-    text-shadow: 0 2px 16px rgba(220, 220, 220, 0.4);
+    font-weight: 900; color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem;
   }
   .hero-title em {
-    font-style: normal; color: #ffff00;
-    text-shadow: 0 0 24px rgba(126,223,168,.55);
+    font-style: normal; color: var(--emerald-dk);
   }
   /* ★ FIX 1 — sub-text white 85% (was dark forest green — unreadable) */
   .hero-sub {
-    font-size: 1.05rem; color: rgba(255,255,255,.85);
-    line-height: 1.8; max-width: 560px; margin-bottom: 2.5rem; font-weight: 800;
+    font-size: 1.05rem; color: var(--slate);
+    line-height: 1.8; max-width: 560px; margin-bottom: 2.5rem; font-weight: 500;
   }
-  .hero-sub strong { color: #7edfa8; font-weight: 900; }
+  .hero-sub strong { color: var(--navy); font-weight: 900; }
 
   /* ★ FIX 1 — chips are glassy white on dark overlay */
   .hero-chips { display: flex; flex-wrap: wrap; gap: .65rem; margin-bottom: 2.5rem; }
   .hero-chip {
     display: flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,.09); border: 1.5px solid rgba(255,255,255,.18);
-    color: rgb(255, 255, 255); font-size: .8rem; padding: .4rem .9rem;
-    border-radius: 50px; font-weight: 900; backdrop-filter: blur(4px);
+    background: rgba(255,255,255,.6); border: 1.5px solid var(--border);
+    color: var(--navy); font-size: .8rem; padding: .4rem .9rem;
+    border-radius: 50px; font-weight: 700; backdrop-filter: blur(8px);
   }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-em {
@@ -220,35 +219,34 @@ const styles = `
   .btn-em:hover { background: #14834a; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(24,163,82,.5); }
   /* ★ FIX 1 — ghost button visible on dark overlay */
   .btn-ghost {
-    background: rgba(6, 70, 0, 0.95); color: #fff; border: none; padding: .85rem 2rem; border-radius: 15px;
+    background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: .75rem 2rem; border-radius: 15px;
     font-family: 'DM Sans', sans-serif; font-size: .88rem; font-weight: 900;
     text-transform: uppercase; letter-spacing: .1em; cursor: pointer; text-decoration: none;
-    display: inline-block; transition: all .22s; box-shadow: 0 8px 24px rgba(24,163,82,.35);
+    display: inline-block; transition: all .22s;
   }
-  .btn-ghost:hover { border-color: rgba(6, 70, 0, 0.95); background: rgba(255,255,255,.1); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
 
   /* ★ FIX 1 — glance card: darker glass + white text values */
   .hero-aside {
-    background: rgba(6, 70, 0, 0.95); border: 1px solid rgba(255,255,255,.14);
-    border-radius: 16px; padding: 2rem; backdrop-filter: blur(14px);
-    box-shadow: 0 20px 48px rgba(0,0,0,.3);
+    background: rgba(255, 255, 255, 0.85); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem; backdrop-filter: blur(20px);
+    box-shadow: 0 20px 48px rgba(11,61,34,.08);
   }
   .hc-title {
     display: flex; align-items: center; gap: 9px;
     font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 900;
-    color: #ffffff; margin-bottom: 1.5rem; padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,.12);
+    color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
   }
-  .hc-row { display: flex; align-items: flex-start; gap: 12px; padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .hc-row { display: flex; align-items: flex-start; gap: 12px; padding: .75rem 0; border-bottom: 1px solid rgba(11,61,34,.05); }
   .hc-row:last-child { border-bottom: none; padding-bottom: 0; }
   .hc-ico {
     width: 34px; height: 34px; border-radius: 8px;
-    background: rgba(24,163,82,.2); border: 1px solid rgba(24,163,82,.35);
+    background: #ecfdf5; border: 1px solid #c3e8d0;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .hc-lbl { font-size: .63rem; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; color: #7edfa8; margin-bottom: .12rem; }
-  /* ★ FIX 1 — hc-val was dark green; now white/light */
-  .hc-val { font-size: .84rem; color: rgba(255,255,255,.82); line-height: 1.45; white-space: pre-line; font-weight: 800; }
+  .hc-lbl { font-size: .63rem; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; color: var(--emerald-dk); margin-bottom: .12rem; }
+  .hc-val { font-size: .84rem; color: var(--slate); line-height: 1.45; white-space: pre-line; font-weight: 600; }
 
   /* ── SHARED ── */
   .sec { padding: 96px 2rem; max-width: 1280px; margin: 0 auto; }
@@ -608,7 +606,7 @@ const schedule = [
       { ico: "🔧", time: "9:30 – 10:30 AM", event: "Session — Topic TBA", spk: "Shrinivas Bhaskar Karanki", inst: "", hl: true },
       { ico: "💻", time: "10:30 – 11:30 AM", event: "Writing Software/Firmware for Energy Efficient Systems", spk: "Pratyush Anand", inst: "Microsoft", hl: true },
       { ico: "🚀", time: "11:45 AM – 1:00 PM", event: "Shaping the Future of EV Charging: Impacts and Integration with Power, Communication, and ICT Systems", spk: "Dr. Giambattista Gruosso", inst: "Politecnico di Milano, Italy", hl: true },
-      { ico: "🌍", time: "2:30 – 4:00 PM", event: "Session — Topic TBA", spk: "Dr. Lesedi Masisi", inst: "Univ. of Witwatersrand, Johannesburg", hl: true },
+      { ico: "☀️", time: "2:30 – 4:00 PM", event: "Control of Solar PV systems integrated with grid", spk: "Dr. T. Ghose", inst: "BIT Mesra", hl: true },
       { ico: "☀️", time: "4:15 – 5:30 PM", event: "Control Strategies for Grid-Connected Solar PV Systems", spk: "Dr. Ajay Kumar", inst: "Punjab Engineering College", hl: true },
     ],
   },
@@ -715,19 +713,10 @@ const speakers = [
     bio: "Dr. Gruosso is an international expert in EV charging infrastructure, focusing on holistic integration of power systems, communication networks, and ICT for next-generation EV ecosystems. His work addresses the complex interdependencies between charging stations and urban power and communication grids.",
   },
   {
-    name: "Dr. Lesedi Masisi",
-    role: "Senior Lecturer, School of EIE",
-    inst: "Univ. of Witwatersrand, Johannesburg",
-    topic: "Electrical Machines and Drives for Sustainable Development",
-    badge: "International",
-    image: imgLesediMasisi,
-    bio: "Dr. Masisi received his Ph.D. from Concordia University. His research focuses on electrical energy conversion, rotating machines, and renewable energy systems development — bringing a global perspective on sustainable electrical engineering and drives for modern power applications.",
-  },
-  {
     name: "Dr. Ajay Kumar",
     role: "Assistant Professor, Electrical Engineering",
     inst: "Punjab Engineering College, Chandigarh",
-    topic: "Control Strategies for Grid-Connected Solar PV Systems",
+    topic: "Deveolepement and hardware implementation of Power condtitioning system for SPV system",
     badge: "Invited",
     image: imgAjayKumar,
     bio: "Dr. Ajay Kumar (MIEEE, MIE) specialises in distributed generation, renewable energy integration, and power quality assessment. His research emphasises control structure development, hardware testing, and experimental result analysis for grid-connected solar PV systems.",
@@ -795,6 +784,15 @@ const speakers = [
     badge: "Faculty",
     image: imgSKMishra,
     bio: "Dr. Mishra specialises in Signal, Image and Video Processing, Control Systems, Bio-Medical Image Processing, Soft and Evolutionary Computing, AI-based Visual Control of Autonomous Ground Vehicles, AI in Smart Agriculture, and AI in Healthcare.",
+  },
+  {
+    name: "Dr. T. Ghose",
+    role: "Professor, Department of EEE",
+    inst: "BIT Mesra, Ranchi",
+    topic: "Control of Solar PV systems integrated with grid",
+    badge: "Faculty",
+    image: imgTGhosh,
+    bio: "Dr. Tirthadip Ghose is a Professor in the Department of Electrical and Electronics Engineering at BIT Mesra. His research interests include microgrid operation and control, demand response, and integration of renewable energy sources. He has extensive experience in power systems analysis and has held several key administrative positions at BIT Mesra.",
   },
 ];
 
@@ -953,7 +951,7 @@ export default function App() {
       v: "Emerging Control & Digital Technologies for Sustainable Green Energy",
     },
     { e: "📍", l: "Venue", v: "Dept. of EEE, BIT Mesra, Ranchi" },
-    { e: "🎓", l: "Mode", v: "Online" },
+    { e: "🎓", l: "Mode", v: "Hybrid" },
     { e: "📋", l: "Seats", v: "Limited No. Of Seats. Hurry Up to fix yours." },
   ];
 
@@ -988,7 +986,7 @@ export default function App() {
                 <div className="nb-sub">Dept. of EEE</div>
               </div>
             </a>
-            
+
             {/* GAIL Sponsor Logo */}
             <div style={{ display: "flex", alignItems: "center", gap: "10px", paddingLeft: "1.5rem", borderLeft: "2px solid rgba(11, 61, 34, 0.15)", height: "44px" }}>
               <div style={{ height: "40px", display: "flex", alignItems: "center", backgroundColor: "#fff", borderRadius: "4px" }}>
@@ -997,6 +995,17 @@ export default function App() {
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <span style={{ fontSize: "0.65rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--slate)", lineHeight: 1.2 }}>Sponsored by</span>
                 <span style={{ fontSize: "1.1rem", fontFamily: "'Playfair Display', serif", fontWeight: 1000, color: "var(--navy)", lineHeight: 1.1 }}>GAIL</span>
+              </div>
+            </div>
+
+            {/* Creative Robotics Sponsor Logo */}
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", paddingLeft: "1.5rem", borderLeft: "2px solid rgba(11, 61, 34, 0.15)", height: "44px" }}>
+              <div style={{ height: "40px", display: "flex", alignItems: "center", backgroundColor: "#fff", borderRadius: "4px" }}>
+                <img src={crlogo} alt="Creative Robotics Logo" style={{ height: "100%", width: "auto", objectFit: "contain", mixBlendMode: "multiply" }} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <span style={{ fontSize: "0.65rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--slate)", lineHeight: 1.2 }}>Also Sponsored By</span>
+                <span style={{ fontSize: "1.1rem", fontFamily: "'Playfair Display', serif", fontWeight: 1000, color: "var(--navy)", lineHeight: 1.1 }}>Creative Robotics</span>
               </div>
             </div>
           </div>
@@ -1052,7 +1061,7 @@ export default function App() {
 
             {/* ★ FIX 1 — chips: glassy white border on dark overlay */}
             <div className="hero-chips">
-              {["📅 18–22 May 2026", "📍 EEE Dept., BIT Mesra", "🎙️ 18 Expert Speakers", "🤝 Offline · Hands-on"].map(t => (
+              {["📅 18–22 May 2026", "📍 EEE Dept., BIT Mesra", "🎙️ 18 Expert Speakers", "🤝 Hybrid · Hands-on"].map(t => (
                 <div className="hero-chip" key={t}>{t}</div>
               ))}
             </div>
@@ -1163,7 +1172,7 @@ export default function App() {
                 },
                 { num: "200", lbl: "Maximum Participant Capacity", w: "60%" },
                 { num: "118", lbl: "Registration Fee(Including GST)", w: "5%" },
-                { num: "3", lbl: "International Speakers", w: "50%" },
+                { num: "2", lbl: "International Speakers", w: "50%" },
               ].map((s) => (
                 <div className="s-item" key={s.num}>
                   <div className={`s-num${s.gold ? " gold" : ""}`}>{s.num}</div>
