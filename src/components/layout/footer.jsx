@@ -1,9 +1,6 @@
 export default function Footer() {
   const navLinks = ["home", "about", "topics", "schedule", "speakers", "committee", "register"];
-
-  const go = (id) => { 
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); 
-  };
+  const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <footer>

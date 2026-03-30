@@ -1,22 +1,21 @@
-/* ── Professor photo imports (unchanged) ── */
-import imgRajeshGupta from "./assets/images/rajesh_gupta.png";
-import imgAjayKumar from "./assets/images/ajay_kumar.png";
-import imgKalyanChatterjee from "./assets/images/kalyan_chatterjee.png";
-import imgRiteshKeshri from "./assets/images/ritesh_keshri.png";
-import imgSumantKadwane from "./assets/images/sumant_kadwane.png";
-import imgKBMohanty from "./assets/images/kb_mohanty.png";
-import imgArghyaMitra from "./assets/images/arghya_mitra.png";
-import imgLaliteshKumar from "./assets/images/lalitesh_kumar.png";
-import imgSubhojitGhosh from "./assets/images/subhojit_ghosh.png";
-import imgJayaReddy from "./assets/images/jaya_reddy.png";
-import imgBidyadharSubudhi from "./assets/images/bidyadhar_subudhi.png";
-import imgSKMishra from "./assets/images/sk_mishra.png";
-import imgSoumyaChatterjee from "./assets/images/soumya_chatterjee.png";
-import imgAdityaGautam from "./assets/images/aditya_gautam.png";
-import imgPratyushAnand from "./assets/images/pratyush_anand.png";
-import imgDeepakKumar from "./assets/images/deepak_kumar.png";
-import imgTGhosh from "./assets/images/tghosh.jpeg";
-import imgGruosso from "./assets/images/gruosso.png";
+import imgRajeshGupta from "../assets/images/rajesh_gupta.png";
+import imgAjayKumar from "../assets/images/ajay_kumar.png";
+import imgKalyanChatterjee from "../assets/images/kalyan_chatterjee.png";
+import imgRiteshKeshri from "../assets/images/ritesh_keshri.png";
+import imgSumantKadwane from "../assets/images/sumant_kadwane.png";
+import imgKBMohanty from "../assets/images/kb_mohanty.png";
+import imgArghyaMitra from "../assets/images/arghya_mitra.png";
+import imgLaliteshKumar from "../assets/images/lalitesh_kumar.png";
+import imgSubhojitGhosh from "../assets/images/subhojit_ghosh.png";
+import imgJayaReddy from "../assets/images/jaya_reddy.png";
+import imgBidyadharSubudhi from "../assets/images/bidyadhar_subudhi.png";
+import imgSKMishra from "../assets/images/sk_mishra.png";
+import imgSoumyaChatterjee from "../assets/images/soumya_chatterjee.png";
+import imgAdityaGautam from "../assets/images/aditya_gautam.png";
+import imgPratyushAnand from "../assets/images/pratyush_anand.png";
+import imgDeepakKumar from "../assets/images/deepak_kumar.png";
+import imgTGhosh from "../assets/images/tghosh.jpeg";
+import imgGruosso from "../assets/images/gruosso.png";
 
 export const topics = {
   Robotics: [
