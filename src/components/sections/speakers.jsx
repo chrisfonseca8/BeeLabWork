@@ -109,7 +109,7 @@ export default function Speakers({ onSelectSpeaker }) {
       className="relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(175deg, #f8fafc 0%, #f0fdf4 35%, #dcfce7 70%, #f0fdf4 100%)",
+          "linear-gradient(175deg, #064e3b 0%, #047857 50%, #064e3b 100%)",
       }}
     >
       {/* ── Background texture ── */}
@@ -117,7 +117,7 @@ export default function Speakers({ onSelectSpeaker }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           opacity: 0.05,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23047857'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: "60px 60px",
         }}
       />
@@ -132,22 +132,22 @@ export default function Speakers({ onSelectSpeaker }) {
           width: 700,
           height: 500,
           background:
-            "radial-gradient(ellipse, rgba(4,120,87,0.15) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-28">
         {/* ── Section Header ── */}
         <div className="text-center mb-14">
-          <div className="tag" style={{ justifyContent: "center" }}>
+          <div className="tag light flex justify-center w-full" style={{ justifyContent: "center" }}>
             Resource Persons
           </div>
           <h2
-            className="sec-h"
+            className="sec-h light"
             style={{
               fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
               marginBottom: "0.6rem",
-              color: "#022c22",
+              color: "#ffffff",
             }}
           >
             Distinguished Speakers
@@ -157,13 +157,13 @@ export default function Speakers({ onSelectSpeaker }) {
               width: 52,
               height: 3,
               margin: "0 auto 1.2rem",
-              background: "linear-gradient(to right, #047857, #10b981)",
+              background: "linear-gradient(to right, #34d399, #10b981)",
               borderRadius: 2,
             }}
           />
           <p
             style={{
-              color: "#475569",
+              color: "rgba(255,255,255,0.75)",
               fontSize: ".88rem",
               maxWidth: 460,
               margin: "0 auto",
@@ -173,7 +173,7 @@ export default function Speakers({ onSelectSpeaker }) {
             18 experts from IITs, NITs, Politecnico di Milano, Microsoft &
             global universities.
             <br />
-            <strong style={{ color: "#059669" }}>Tap the center card</strong> for
+            <strong style={{ color: "#34d399" }}>Tap the center card</strong> for
             full profile & bio.
           </p>
         </div>
@@ -265,7 +265,7 @@ export default function Speakers({ onSelectSpeaker }) {
                   fontFamily: "'Playfair Display', serif",
                   fontSize: "clamp(1.4rem, 2.8vw, 2rem)",
                   fontWeight: 900,
-                  color: "#022c22",
+                  color: "#ffffff",
                   lineHeight: 1.15,
                   marginBottom: "0.35rem",
                 }}
@@ -277,7 +277,7 @@ export default function Speakers({ onSelectSpeaker }) {
               <p
                 style={{
                   fontSize: "0.85rem",
-                  color: "#334155",
+                  color: "rgba(255,255,255,0.85)",
                   lineHeight: 1.5,
                   fontWeight: 500,
                 }}
@@ -289,7 +289,7 @@ export default function Speakers({ onSelectSpeaker }) {
               <p
                 style={{
                   fontSize: "0.78rem",
-                  color: "#64748b",
+                  color: "rgba(255,255,255,0.65)",
                   lineHeight: 1.5,
                   marginTop: 2,
                 }}
@@ -304,7 +304,7 @@ export default function Speakers({ onSelectSpeaker }) {
                   style={{
                     fontSize: "0.8rem",
                     fontStyle: "italic",
-                    color: "#64748b",
+                    color: "rgba(255,255,255,0.65)",
                     maxWidth: 440,
                     lineHeight: 1.55,
                   }}

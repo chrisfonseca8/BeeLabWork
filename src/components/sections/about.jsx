@@ -6,13 +6,14 @@ import { getIconComponent } from "../icons";
 /* ───────────────────────────────────────────────────────────
    COMBINED ABOUT + CURRICULUM
    Bitotsav layout structure · White/Green theme
+   Professional language throughout
    ─────────────────────────────────────────────────────────── */
 
 const chapters = [
   {
     num: "I",
     title: "EV & Power\nElectronics",
-    subtitle: "Performance Realm",
+    subtitle: "Power Systems Track",
     ico: "🔌",
     desc: "Bidirectional EV chargers, V2G technology, Z-source inverters, and digital controllers for power converters.",
     topics: [
@@ -25,7 +26,7 @@ const chapters = [
   {
     num: "II",
     title: "Smart Grid\n& Microgrids",
-    subtitle: "Innovation Realm",
+    subtitle: "Grid Systems Track",
     ico: "🌐",
     desc: "PMU applications, microgrid energy management, cyber resiliency of legacy networks, and wide-area control.",
     topics: [
@@ -38,7 +39,7 @@ const chapters = [
   {
     num: "III",
     title: "AI & Control\nSystems",
-    subtitle: "Intelligence Realm",
+    subtitle: "Intelligence Track",
     ico: "🧠",
     desc: "AI-based predictive maintenance, robust adaptive control for PV, port-Hamiltonian frameworks, and windmill control.",
     topics: [
@@ -51,7 +52,7 @@ const chapters = [
   {
     num: "IV",
     title: "Renewable\nEnergy Systems",
-    subtitle: "Sustainability Realm",
+    subtitle: "Sustainability Track",
     ico: "☀️",
     desc: "Solar PV grid integration, HEV condition monitoring, sustainable energy applications, and control techniques.",
     topics: [
@@ -110,41 +111,117 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="stats-panel">
-              <h3>Workshop Highlights</h3>
-              {[
-                {
-                  num: "18",
-                  lbl: "Distinguished Speakers from IITs, NITs, International Universities",
-                  w: "95%",
-                },
-                {
-                  num: "5",
-                  lbl: "Days of Intensive Hands-on Training",
-                  w: "100%",
-                },
-                { num: "200", lbl: "Maximum Participant Capacity", w: "60%" },
-                { num: "118", lbl: "Registration Fee(Including GST)", w: "5%" },
-                { num: "2", lbl: "International Speakers", w: "50%" },
-              ].map((s) => (
-                <div className="s-item" key={s.num}>
-                  <div className={`s-num${s.gold ? " gold" : ""}`}>{s.num}</div>
-                  <div style={{ flex: 1 }}>
-                    <div className="s-lbl">{s.lbl}</div>
-                    <div className="s-bar">
-                      <div className={s.gold ? "s-fill-gold" : "s-fill"} style={{ width: s.w }} />
+            {/* Right Column: Workshop At a Glance */}
+            <div
+              style={{
+                background: "#ffffff",
+                border: "1px solid #e5e7eb",
+                borderRadius: 16,
+                padding: "2rem",
+                boxShadow: "0 10px 30px rgba(11,61,34,0.04)",
+                alignSelf: "start",
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "1.2rem",
+                  fontWeight: 900,
+                  color: "#022c22",
+                  marginBottom: "1.2rem",
+                  paddingBottom: "1rem",
+                  borderBottom: "1px solid #e5e7eb",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 7,
+                    height: 7,
+                    background: "#047857",
+                    borderRadius: "50%",
+                  }}
+                />
+                Workshop at a Glance
+              </h3>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+                {[
+                  { lbl: "Dates", val: "18 – 22 May 2026" },
+                  { lbl: "Venue", val: "Dept. of EEE, BIT Mesra\nRanchi, Jharkhand – 835215" },
+                  { lbl: "Duration", val: "5 Days · Hands-on Training" },
+                  { lbl: "Eligible", val: "Faculty · PhD · PG · Industry" },
+                  { lbl: "Cert.", val: "80% Attendance + 70% Assessment" },
+                  { lbl: "Contact", val: "gaurishankergupta@bitmesra.ac.in" },
+                ].map((r) => {
+                  const IconComp = getIconComponent(r.lbl);
+                  return (
+                    <div
+                      key={r.lbl}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "0.85rem",
+                        paddingBottom: "0.75rem",
+                        borderBottom: "1px solid rgba(11,61,34,0.04)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: 8,
+                          background: "#ecfdf5",
+                          border: "1px solid #d1fae5",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          color: "#047857",
+                        }}
+                      >
+                        <IconComp size={16} color="currentColor" />
+                      </div>
+                      <div>
+                        <div
+                          style={{
+                            fontSize: "0.6rem",
+                            fontWeight: 900,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.12em",
+                            color: "#047857",
+                            marginBottom: "0.2rem",
+                          }}
+                        >
+                          {r.lbl}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "0.8rem",
+                            color: "#475569",
+                            lineHeight: 1.4,
+                            whiteSpace: "pre-line",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {r.val}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════
-          SECTION 2 — CURRICULUM CHAPTERS (Light Green Theme)
-          Bitotsav "Chapters of the Saga" layout
+          SECTION 2 — CURRICULUM TRACKS (Light Green Theme)
+          Bitotsav-inspired 3-column interactive layout
           ══════════════════════════════════════════════════ */}
       <section
         id="topics"
@@ -204,13 +281,13 @@ export default function About() {
                     margin: 0,
                   }}
                 >
-                  Four headline realms define the workshop curriculum,
-                  each covering cutting-edge topics in sustainable energy technology.
+                  Four core tracks define the workshop curriculum, each
+                  covering cutting-edge topics in sustainable energy technology.
                 </p>
               </div>
             </div>
 
-            {/* Chapter number pills */}
+            {/* Track number pills */}
             <div style={{ display: "flex", gap: "0.5rem" }}>
               {chapters.map((c, idx) => (
                 <button
@@ -234,7 +311,7 @@ export default function About() {
                   }}
                 >
                   <span style={{ fontSize: "0.5rem", fontWeight: 900, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.7 }}>
-                    PILLAR
+                    TRACK
                   </span>
                   <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", fontWeight: 900, fontStyle: "italic" }}>
                     {c.num}
@@ -254,7 +331,7 @@ export default function About() {
             }}
             className="chapters-grid"
           >
-            {/* COL 1: Chapter Nav Cards */}
+            {/* COL 1: Track Nav Cards */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem" }}>
               {chapters.map((c, idx) => {
                 const isActive = activeChap === idx;
@@ -278,7 +355,7 @@ export default function About() {
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.6rem" }}>
                       <span style={{ fontSize: "0.58rem", fontWeight: 900, letterSpacing: "0.16em", textTransform: "uppercase", color: "#047857" }}>
-                        PILLAR {c.num}
+                        TRACK {c.num}
                       </span>
                       <span style={{ fontSize: "1rem", opacity: isActive ? 1 : 0.35, transition: "opacity 0.3s", filter: isActive ? "none" : "grayscale(100%)" }}>
                         {c.ico}
@@ -341,7 +418,6 @@ export default function About() {
                       background: "linear-gradient(150deg, #ecfdf5 0%, #dcfce7 40%, #f0fdf4 100%)",
                     }}
                   />
-                  {/* Radial accent */}
                   <div
                     style={{
                       position: "absolute",
@@ -368,7 +444,7 @@ export default function About() {
                     }}
                   >
                     <span style={{ fontSize: "0.58rem", fontWeight: 900, color: "#047857", letterSpacing: "0.18em", textTransform: "uppercase" }}>
-                      ✦ LIVE PILLAR FOCUS
+                      ✦ ACTIVE TRACK FOCUS
                     </span>
                   </div>
 
@@ -416,7 +492,7 @@ export default function About() {
               </AnimatePresence>
             </div>
 
-            {/* COL 3: Chapter Notes */}
+            {/* COL 3: Track Details */}
             <div
               style={{
                 border: "1.5px solid #e5e7eb",
@@ -439,7 +515,7 @@ export default function About() {
                   style={{ display: "flex", flexDirection: "column", flex: 1 }}
                 >
                   <span style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.22em", color: "#047857", textTransform: "uppercase", borderBottom: "1.5px solid #e5e7eb", paddingBottom: "0.85rem", marginBottom: "1.25rem", display: "block" }}>
-                    PILLAR NOTES
+                    TRACK OVERVIEW
                   </span>
 
                   <h3
@@ -452,8 +528,8 @@ export default function About() {
                       margin: "0 0 1rem 0",
                     }}
                   >
-                    {ch.subtitle.replace(" Realm", "")}<br />
-                    <span style={{ color: "#047857" }}>Realm</span>
+                    {ch.subtitle.replace(" Track", "")}<br />
+                    <span style={{ color: "#047857" }}>Track</span>
                   </h3>
 
                   <p style={{ fontSize: "0.8rem", color: "#64748b", lineHeight: 1.7, fontWeight: 500, marginBottom: "1.5rem" }}>
@@ -463,7 +539,7 @@ export default function About() {
                   {/* Topics */}
                   <div style={{ borderTop: "1.5px solid #e5e7eb", paddingTop: "1rem", flex: 1 }}>
                     <span style={{ fontSize: "0.6rem", fontWeight: 900, letterSpacing: "0.18em", color: "#3d6055", textTransform: "uppercase", display: "block", marginBottom: "0.85rem" }}>
-                      EXPLORE TOPICS
+                      TOPICS COVERED
                     </span>
                     <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
                       {ch.topics.map((t, i) => (
@@ -505,7 +581,7 @@ export default function About() {
                         cursor: "pointer",
                       }}
                     >
-                      EXPLORE REALM <span style={{ fontSize: "0.85rem" }}>↗</span>
+                      VIEW FULL SYLLABUS <span style={{ fontSize: "0.85rem" }}>↗</span>
                     </span>
                   </div>
                 </motion.div>
@@ -573,7 +649,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Responsive override */}
+        {/* Responsive */}
         <style>{`
           @media (max-width: 900px) {
             .chapters-grid {

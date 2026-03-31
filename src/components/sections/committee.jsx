@@ -6,11 +6,20 @@ import sourabh from "../../assets/images/sourabh.jpg";
 
 export default function Committee() {
   return (
-    <section id="committee" className="sec-dark">
+    <section 
+      id="committee" 
+      className="sec-white" 
+      style={{ 
+        minHeight: "100vh", 
+        paddingTop: "140px", 
+        background: "linear-gradient(170deg, #f8fafc 0%, #f0fdf4 40%, #dcfce7 100%)",
+        paddingBottom: "80px"
+      }}
+    >
       <div className="sec">
-        <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 3rem" }}>
-          <div className="tag light" style={{ justifyContent: "center" }}>Organisation</div>
-          <h2 className="sec-h light">Organizing Committee</h2>
+        <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 3.5rem" }}>
+          <div className="tag" style={{ justifyContent: "center" }}>Organisation</div>
+          <h2 className="sec-h">Organizing Committee</h2>
           <div className="rule" style={{ margin: "0 auto" }} />
         </div>
         <div className="cm-grid">

@@ -8,6 +8,7 @@ import Footer from "./components/layout/footer";
 import Hero from "./components/sections/hero";
 import About from "./components/sections/about";
 import Speakers from "./components/sections/speakers";
+import Committee from "./components/sections/committee";
 import CallToAction from "./components/sections/callToAction";
 
 // Page Components
@@ -22,6 +23,11 @@ export default function App() {
 
   const goToSchedule = () => {
     setCurrentPage("schedule");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const goToTeam = () => {
+    setCurrentPage("team");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -43,21 +49,28 @@ export default function App() {
       
       <Navbar 
         onOpenSchedule={goToSchedule} 
+        onOpenTeam={goToTeam}
         onNavigate={goToHome}
         currentPage={currentPage}
       />
       
-      {currentPage === "home" ? (
+      {currentPage === "home" && (
         <main>
           <Hero />
           <About />
           <Speakers onSelectSpeaker={setSelectedSpeaker} />
           <CallToAction />
         </main>
-      ) : (
+      )}
+
+      {currentPage === "schedule" && (
         <SchedulePage
           onSelectSpeaker={(sp) => setSelectedSpeaker(sp)}
         />
+      )}
+
+      {currentPage === "team" && (
+        <Committee />
       )}
 
       <Footer />

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Navbar({ onOpenSchedule, onNavigate, currentPage }) {
+export default function Navbar({ onOpenSchedule, onOpenTeam, onNavigate, currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -23,7 +23,7 @@ export default function Navbar({ onOpenSchedule, onNavigate, currentPage }) {
 
   // IntersectionObserver to track active section
   useEffect(() => {
-    const sectionIds = navLinks.map(l => l.id).filter(id => id !== "schedule");
+    const sectionIds = navLinks.map(l => l.id).filter(id => id !== "schedule" && id !== "committee");
     const observers = [];
 
     const handleIntersect = (entries) => {
@@ -52,6 +52,11 @@ export default function Navbar({ onOpenSchedule, onNavigate, currentPage }) {
   const go = (id) => {
     if (id === "schedule") {
       onOpenSchedule?.();
+      setMenuOpen(false);
+      return;
+    }
+    if (id === "committee") {
+      onOpenTeam?.();
       setMenuOpen(false);
       return;
     }
@@ -100,7 +105,9 @@ export default function Navbar({ onOpenSchedule, onNavigate, currentPage }) {
           <div className="hidden md:flex items-center">
             <ul className="flex items-center gap-7 m-0 p-0 list-none">
               {navLinks.map(link => {
-                const isActive = currentPage === "schedule" ? link.id === "schedule" : activeSection === link.id;
+                const isActive = (currentPage === "schedule" && link.id === "schedule") || 
+                                 (currentPage === "team" && link.id === "committee") || 
+                                 (currentPage === "home" && activeSection === link.id);
                 return (
                   <li key={link.id}>
                     <a 
@@ -185,7 +192,9 @@ export default function Navbar({ onOpenSchedule, onNavigate, currentPage }) {
         {menuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-emerald-100 shadow-xl p-6 flex flex-col gap-5">
             {navLinks.map(link => {
-              const isActive = currentPage === "schedule" ? link.id === "schedule" : activeSection === link.id;
+              const isActive = (currentPage === "schedule" && link.id === "schedule") || 
+                               (currentPage === "team" && link.id === "committee") || 
+                               (currentPage === "home" && activeSection === link.id);
               return (
                 <a 
                   key={link.id}
