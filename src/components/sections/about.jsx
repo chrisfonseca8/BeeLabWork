@@ -111,36 +111,39 @@ export default function About() {
                 </p>
               </div>
             </div>
-            {/* Right Column: Workshop At a Glance */}
+            {/* Right Column: Workshop At a Glance — stretches to match about column */}
             <div
               style={{
                 background: "#ffffff",
                 border: "1px solid #e5e7eb",
-                borderRadius: 16,
-                padding: "2rem",
+                borderRadius: 18,
+                padding: "2.25rem 2.35rem",
                 boxShadow: "0 10px 30px rgba(11,61,34,0.04)",
-                alignSelf: "start",
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "100%",
               }}
             >
               <h3
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: "1.2rem",
+                  fontSize: "clamp(1.25rem, 1.6vw, 1.45rem)",
                   fontWeight: 900,
                   color: "#022c22",
-                  marginBottom: "1.2rem",
-                  paddingBottom: "1rem",
+                  marginBottom: "1.35rem",
+                  paddingBottom: "1.1rem",
                   borderBottom: "1px solid #e5e7eb",
                   display: "flex",
                   alignItems: "center",
-                  gap: 10,
+                  gap: 12,
+                  flexShrink: 0,
                 }}
               >
                 <span
                   style={{
                     display: "inline-block",
-                    width: 7,
-                    height: 7,
+                    width: 8,
+                    height: 8,
                     background: "#047857",
                     borderRadius: "50%",
                   }}
@@ -148,7 +151,15 @@ export default function About() {
                 Workshop at a Glance
               </h3>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flex: 1,
+                  justifyContent: "space-between",
+                  gap: "0.5rem",
+                }}
+              >
                 {[
                   { lbl: "Dates", val: "18 – 22 May 2026" },
                   { lbl: "Venue", val: "Dept. of EEE, BIT Mesra\nRanchi, Jharkhand – 835215" },
@@ -156,24 +167,25 @@ export default function About() {
                   { lbl: "Eligible", val: "Faculty · PhD · PG · Industry" },
                   { lbl: "Cert.", val: "80% Attendance + 70% Assessment" },
                   { lbl: "Contact", val: "gaurishankergupta@bitmesra.ac.in" },
-                ].map((r) => {
+                ].map((r, rowIdx, arr) => {
                   const IconComp = getIconComponent(r.lbl);
+                  const isLast = rowIdx === arr.length - 1;
                   return (
                     <div
                       key={r.lbl}
                       style={{
                         display: "flex",
                         alignItems: "flex-start",
-                        gap: "0.85rem",
-                        paddingBottom: "0.75rem",
-                        borderBottom: "1px solid rgba(11,61,34,0.04)",
+                        gap: "1rem",
+                        paddingBottom: isLast ? 0 : "0.95rem",
+                        borderBottom: isLast ? "none" : "1px solid rgba(11,61,34,0.06)",
                       }}
                     >
                       <div
                         style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: 8,
+                          width: 42,
+                          height: 42,
+                          borderRadius: 10,
                           background: "#ecfdf5",
                           border: "1px solid #d1fae5",
                           display: "flex",
@@ -183,26 +195,26 @@ export default function About() {
                           color: "#047857",
                         }}
                       >
-                        <IconComp size={16} color="currentColor" />
+                        <IconComp size={20} color="currentColor" sw={2.25} />
                       </div>
-                      <div>
+                      <div style={{ minWidth: 0 }}>
                         <div
                           style={{
-                            fontSize: "0.6rem",
+                            fontSize: "0.68rem",
                             fontWeight: 900,
                             textTransform: "uppercase",
                             letterSpacing: "0.12em",
                             color: "#047857",
-                            marginBottom: "0.2rem",
+                            marginBottom: "0.28rem",
                           }}
                         >
                           {r.lbl}
                         </div>
                         <div
                           style={{
-                            fontSize: "0.8rem",
+                            fontSize: "0.92rem",
                             color: "#475569",
-                            lineHeight: 1.4,
+                            lineHeight: 1.45,
                             whiteSpace: "pre-line",
                             fontWeight: 600,
                           }}

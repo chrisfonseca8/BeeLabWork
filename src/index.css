@@ -212,7 +212,7 @@ p { font-size: 1.15rem; line-height: 1.7; }
 .rule { width:52px; height:3px; background:linear-gradient(to right,var(--emerald),var(--gold)); border-radius:2px; margin-bottom:2rem; }
 
 /* ── ABOUT ── */
-.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:stretch; }
 .about-grid > div { min-width:0; }
 @media(max-width:768px){ .about-grid{grid-template-columns:1fr;gap:2.5rem;} }
 .about-text p { font-size:1.25rem; line-height:1.85; color:var(--slate); margin-bottom:.9rem; }

@@ -41,7 +41,7 @@ export default function Hero({ onOpenSchedule }) {
           <h1 className="hero-title" style={{ maxWidth: 840 }}>
             Emerging Control &amp;<br />
             Digital Technologies for<br />
-            <em>Sustainable Green Energy</em>
+            <em>Sustainable Green Energy Systems</em>
           </h1>
 
           {/* Subtitle — One clean line */}
