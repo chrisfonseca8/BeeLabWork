@@ -27,8 +27,8 @@ export default function Hero({ onOpenSchedule }) {
             flexDirection: "column",
             minHeight: "100vh",
             justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
+            alignItems: "flex-start",
+            textAlign: "left",
           }}
         >
           {/* Eyebrow */}
@@ -61,7 +61,7 @@ export default function Hero({ onOpenSchedule }) {
           </p>
 
           {/* Info chips — compact row */}
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.8rem", marginBottom: "2rem" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start", gap: "0.8rem", marginBottom: "2rem" }}>
             {[
               { text: "18–22 May 2026", Icon: Calendar },
               { text: "BIT Mesra, Ranchi", Icon: MapPin },

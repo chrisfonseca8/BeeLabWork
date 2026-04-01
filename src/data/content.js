@@ -281,10 +281,17 @@ export const committee = [
     },
   },
   {
-    role: "Coordinator",
-    name: "Dr. Sourabh Paitandi",
-    title: "EEE Dept., BIT Mesra, Ranchi",
-    initials: "SP",
-    contact: { email: "sourabh_paitandi@bitmesra.ac.in" },
+    role: "Role",
+    name: "Name",
+    title: "Title / affiliation\nBIT Mesra, Ranchi",
+    initials: "P1",
+    contact: null,
+  },
+  {
+    role: "Role",
+    name: "Name",
+    title: "Title / affiliation\nBIT Mesra, Ranchi",
+    initials: "P2",
+    contact: null,
   },
 ];

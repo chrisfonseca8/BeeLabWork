@@ -2,7 +2,12 @@ import { committee } from "../../data/content";
 import vc from "../../assets/images/vc.jpg";
 import imgSKMishra from "../../assets/images/sk_mishra.png";
 import gssir2 from "../../assets/images/gssir2.png";
-import sourabh from "../../assets/images/sourabh.jpg";
+
+const COMMITTEE_PHOTOS = {
+  "Prof. Indranil Manna": vc,
+  "Dr. Sudhansu Kumar Mishra": imgSKMishra,
+  "Dr. Gauri Shanker Gupta": gssir2,
+};
 
 export default function Committee() {
   return (
@@ -11,13 +16,13 @@ export default function Committee() {
       className="sec-white" 
       style={{ 
         minHeight: "100vh", 
-        paddingTop: "140px", 
+        paddingTop: "114px",
         background: "linear-gradient(170deg, #f8fafc 0%, #f0fdf4 40%, #dcfce7 100%)",
-        paddingBottom: "80px"
+        paddingBottom: "56px"
       }}
     >
-      <div className="sec">
-        <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 3.5rem" }}>
+      <div className="sec" style={{ paddingTop: "1.25rem", paddingBottom: "2.5rem" }}>
+        <div style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 1.75rem" }}>
           <div className="tag" style={{ justifyContent: "center" }}>Organisation</div>
           <h2 className="sec-h">Organizing Committee</h2>
           <div className="rule" style={{ margin: "0 auto" }} />
@@ -26,11 +31,15 @@ export default function Committee() {
           {committee.map((m, i) => (
             <div className="cm-card" key={i}>
               <div className="cm-av">
-                {i === 0 ? <img src={vc} alt={m.name} style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} />
-                : i === 1 ? <img src={imgSKMishra} alt={m.name} style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} />
-                : i === 2 ? <img src={gssir2} alt={m.name} style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} />
-                : i === committee.length - 1 ? <img src={sourabh} alt={m.name} style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }} />
-                : m.initials}
+                {COMMITTEE_PHOTOS[m.name] ? (
+                  <img
+                    src={COMMITTEE_PHOTOS[m.name]}
+                    alt={m.name}
+                    style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                  />
+                ) : (
+                  m.initials
+                )}
               </div>
               <div className="cm-role">{m.role}</div>
               <div className="cm-name">{m.name}</div>
