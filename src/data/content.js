@@ -45,6 +45,8 @@ export const schedule = [
   {
     day: "Day 1", subtitle: "Invited Talks", date: "18 May 2026",
     items: [
+      { ico: "🚗", time: "10:30 – 11:30 AM", event: "EV Charging and Grid Interactions", spk: "Dr. Ritesh Kumar Keshri", inst: "VNIT Nagpur", hl: true },
+      { ico: "🏘️", time: "11:45 AM – 1:00 PM", event: "Energy Management for Sustainable Microgrid", spk: "Dr. Arghya Mitra", inst: "VNIT Nagpur", hl: true },
       { ico: "🎙️", time: "12:00 – 1:30 PM", event: "Emerging Control, AI, and Cybersecurity Technologies for Sustainable Green Energy Systems", spk: "Dr. Kalyan Chatterjee", inst: "IIT (ISM) Dhanbad", hl: true },
       { ico: "⚡", time: "2:30 – 5:30 PM", event: "Digital Controllers in Power Converters for Renewable Energy Systems", spk: "Dr. Rajesh Gupta", inst: "NIT Allahabad", hl: true },
     ],
@@ -53,8 +55,6 @@ export const schedule = [
     day: "Day 2", subtitle: "EV Charging & Microgrid", date: "19 May 2026",
     items: [
       { ico: "🔌", time: "9:30 – 10:30 AM", event: "Design and Control of Z-Source Inverter-Based Bidirectional EV Charger for V2G Applications", spk: "Dr. Sumant G. Kadwane", inst: "Yeshwantrao Chavan College of Engineering.", hl: true },
-      { ico: "🚗", time: "10:30 – 11:30 AM", event: "EV Charging and Grid Interactions", spk: "Dr. Ritesh Kumar Keshri", inst: "VNIT Nagpur", hl: true },
-      { ico: "🏘️", time: "11:45 AM – 1:00 PM", event: "Energy Management for Sustainable Microgrid", spk: "Dr. Arghya Mitra", inst: "VNIT Nagpur", hl: true },
       { ico: "⚗️", time: "2:30 – 4:00 PM", event: "Enhancing Stability and Performance of PEM Fuel Cells through Port-Hamiltonian Control Framework", spk: "Dr. Lalitesh Kumar", inst: "SUSTECH, Shenzhen, China", hl: true },
       { ico: "🛡️", time: "4:15 – 5:45 PM", event: "Cyber Resiliency of Legacy Power Networks under Resource-Constrained Settings", spk: "Dr. Subhojit Ghosh", inst: "NIT Raipur", hl: true },
     ],
@@ -281,17 +281,17 @@ export const committee = [
     },
   },
   {
-    role: "Role",
-    name: "Name",
-    title: "Title / affiliation\nBIT Mesra, Ranchi",
-    initials: "P1",
+    role: "Co-Coordinator",
+    name: "Dr. Prem Prakash",
+    title: "EEE Dept., BIT Mesra, Ranchi",
+    initials: "PP",
     contact: null,
   },
   {
-    role: "Role",
-    name: "Name",
-    title: "Title / affiliation\nBIT Mesra, Ranchi",
-    initials: "P2",
+    role: "Co-Coordinator",
+    name: "Dr. Surendra Kumar",
+    title: "EEE Dept., BIT Mesra, Ranchi",
+    initials: "SK",
     contact: null,
   },
 ];

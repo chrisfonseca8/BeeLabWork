@@ -1,11 +1,9 @@
-/**
- * Replace with real sponsor logos (import images) and URLs as needed.
- */
+import imgGAIL from "../assets/images/GAIL.jpeg";
+import imgCreativeRobotics from "../assets/images/Creative Robotics.jpeg";
+import imgQuarbz from "../assets/images/QUARBZ Typhoon HIL.jpeg";
+
 export const sponsors = [
-  { name: "Siemens Energy", tier: "Platinum Partner", image: null },
-  { name: "Schneider Electric", tier: "Gold Sponsor", image: null },
-  { name: "L&T Technology Services", tier: "Technology Partner", image: null },
-  { name: "Texas Instruments", tier: "Innovation Partner", image: null },
-  { name: "National Power Grid", tier: "Industry Partner", image: null },
-  { name: "AICTE – NEAT", tier: "Supporting Organisation", image: null },
+  { name: "GAIL", tier: "Sponsor", image: imgGAIL },
+  { name: "Creative Robotics", tier: "Sponsor", image: imgCreativeRobotics },
+  { name: "QUARBZ Typhoon HIL", tier: "Sponsor", image: imgQuarbz },
 ];

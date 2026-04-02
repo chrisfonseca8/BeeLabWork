@@ -28,30 +28,47 @@ export default function Committee() {
           <div className="rule" style={{ margin: "0 auto" }} />
         </div>
         <div className="cm-grid">
-          {committee.map((m, i) => (
-            <div className="cm-card" key={i}>
-              <div className="cm-av">
-                {COMMITTEE_PHOTOS[m.name] ? (
-                  <img
-                    src={COMMITTEE_PHOTOS[m.name]}
-                    alt={m.name}
-                    style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
-                  />
-                ) : (
-                  m.initials
+          {committee.map((m, i) => {
+            const isCoCoordinator = m.role === "Co-Coordinator";
+            return (
+              <div 
+                className="cm-card" 
+                key={i}
+              >
+                <div 
+                  className="cm-av"
+                >
+                  {COMMITTEE_PHOTOS[m.name] ? (
+                    <img
+                      src={COMMITTEE_PHOTOS[m.name]}
+                      alt={m.name}
+                      style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : (
+                    m.initials
+                  )}
+                </div>
+                <div 
+                  className="cm-role"
+                  style={isCoCoordinator ? { color: "#6b7280" } : {}}
+                >
+                  {m.role}
+                </div>
+                <div className="cm-name">
+                  {m.name}
+                </div>
+                <div className="cm-title">
+                  {m.title}
+                </div>
+                {m.contact && (
+                  <div className="cm-contact">
+                    {m.contact.phone && <div>📞 {m.contact.phone}</div>}
+                    {m.contact.email && <div>✉️ <a href={`mailto:${m.contact.email}`}>{m.contact.email}</a></div>}
+                  </div>
                 )}
               </div>
-              <div className="cm-role">{m.role}</div>
-              <div className="cm-name">{m.name}</div>
-              <div className="cm-title">{m.title}</div>
-              {m.contact && (
-                <div className="cm-contact">
-                  {m.contact.phone && <div>📞 {m.contact.phone}</div>}
-                  {m.contact.email && <div>✉️ <a href={`mailto:${m.contact.email}`}>{m.contact.email}</a></div>}
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

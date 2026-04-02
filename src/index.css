@@ -217,6 +217,63 @@ p { font-size: 1.15rem; line-height: 1.7; }
 @media(max-width:768px){ .about-grid{grid-template-columns:1fr;gap:2.5rem;} }
 .about-text p { font-size:1.25rem; line-height:1.85; color:var(--slate); margin-bottom:.9rem; }
 .about-text strong { color:var(--navy); font-weight:900; }
+
+/* ── DEPARTMENT (Bento + Info) ── */
+.dept-grid{
+  display:grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media(max-width:960px){
+  .dept-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.dept-bento{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 140px));
+  gap: 14px;
+}
+@media(max-width:520px){
+  .dept-bento{ grid-template-rows: repeat(3, minmax(0, 120px)); }
+}
+
+.dept-bento-tile{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid rgba(4,120,87,0.18);
+  background: rgba(236,253,245,0.75);
+  box-shadow: 0 18px 50px rgba(11,61,34,0.06);
+}
+.dept-bento-tile img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  display:block;
+}
+.dept-bento-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(236,253,245,0.06) 55%,
+    rgba(4,120,87,0.08) 100%
+  );
+  pointer-events:none;
+}
+
+.dept-right p{
+  font-size: 1.03rem;
+  line-height: 1.9;
+  color: var(--slate);
+  margin: 0;
+  margin-top: 1rem;
+}
+.dept-right p:first-of-type{ margin-top: 0; }
 .stats-panel {
   background-image:
     linear-gradient(145deg, rgba(11,61,34,.93) 0%, rgba(20,92,51,.90) 100%),

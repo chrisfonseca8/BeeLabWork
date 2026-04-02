@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { topics } from "../../data/content";
 import { getIconComponent } from "../icons";
@@ -64,9 +64,41 @@ const chapters = [
   },
 ];
 
+const labs = [
+  { name: "Power Systems Lab" },
+  { name: "Control System Lab" },
+  { name: "Smart Grid Lab" },
+  { name: "Electrical Machines Lab" },
+  { name: "NaMPET Power Electronics Lab" },
+  { name: "Power Electronics Lab" },
+  { name: "Electrical Measurement & Instrumentation Lab" },
+  { name: "Soft Computing Lab" },
+  { name: "Virtual Instrumentation & Signal Processing Lab" },
+  { name: "Drives Lab" },
+];
+
+const LAB_SHUFFLE_MS = 3000;
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+const CARD_W = 280;
+const CARD_H = 360;
+
 export default function About() {
   const [activeChap, setActiveChap] = useState(0);
+  const [showEligibility, setShowEligibility] = useState(false);
   const ch = chapters[activeChap];
+
+  const [activeLabIndex, setActiveLabIndex] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveLabIndex((i) => mod(i + 1, labs.length));
+    }, LAB_SHUFFLE_MS);
+    return () => window.clearInterval(id);
+  }, []);
 
   return (
     <>
@@ -164,8 +196,8 @@ export default function About() {
                   { lbl: "Dates", val: "18 – 22 May 2026" },
                   { lbl: "Venue", val: "Dept. of EEE, BIT Mesra\nRanchi, Jharkhand – 835215" },
                   { lbl: "Duration", val: "5 Days · Hands-on Training" },
-                  { lbl: "Eligible", val: "Faculty · PhD · PG · Industry" },
-                  { lbl: "Cert.", val: "80% Attendance + 70% Assessment" },
+                  { lbl: "Eligible", val: "Faculty · PhD · PG Research Fellow · UG Final Year · Industry" },
+                  { lbl: "Certificate", val: "80% Attendance + 70% Assessment" },
                   { lbl: "Contact", val: "gaurishankergupta@bitmesra.ac.in" },
                 ].map((r, rowIdx, arr) => {
                   const IconComp = getIconComponent(r.lbl);
@@ -173,12 +205,16 @@ export default function About() {
                   return (
                     <div
                       key={r.lbl}
+                      onClick={() => {
+                        if (r.lbl === "Eligible") setShowEligibility(true);
+                      }}
                       style={{
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "1rem",
                         paddingBottom: isLast ? 0 : "0.95rem",
                         borderBottom: isLast ? "none" : "1px solid rgba(11,61,34,0.06)",
+                        cursor: r.lbl === "Eligible" ? "pointer" : "default",
                       }}
                     >
                       <div
@@ -226,6 +262,219 @@ export default function About() {
                   );
                 })}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
+          SECTION 1.5 — ABOUT THE DEPARTMENT (Glass carousel + Info)
+          ══════════════════════════════════════════════════ */}
+      <section
+        id="department"
+        className="sec-white"
+        style={{
+          paddingTop: "96px",
+          paddingBottom: "96px",
+          background:
+            "linear-gradient(170deg, #ffffff 0%, #f0fdf4 40%, #dcfce7 100%)",
+        }}
+      >
+        <div className="sec">
+          <div className="dept-grid">
+            {/* Left: shuffling carousel */}
+            <div>
+              <div className="tag">About the Department</div>
+
+              <div
+                style={{
+                  position: "relative",
+                  height: CARD_H + 120,
+                  marginTop: "0.75rem",
+                }}
+              >
+                {/* Side/center indices */}
+                {(() => {
+                  const total = labs.length;
+                  const leftIdx = mod(activeLabIndex - 1, total);
+                  const centerIdx = activeLabIndex;
+                  const rightIdx = mod(activeLabIndex + 1, total);
+
+                  const SPRING = {
+                    type: "spring",
+                    stiffness: 340,
+                    damping: 28,
+                    mass: 0.85,
+                  };
+
+                  const glassCommon = {
+                    position: "relative",
+                    width: CARD_W,
+                    height: CARD_H,
+                    borderRadius: 18,
+                    overflow: "hidden",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
+                  };
+
+                  const getPos = (pos) => {
+                    if (pos === "center") {
+                      return { x: 0, scale: 1, opacity: 1, rotateY: 0, zIndex: 50, y: 0 };
+                    }
+                    if (pos === "left") {
+                      return { x: -112, scale: 0.82, opacity: 0.62, rotateY: 16, zIndex: 30, y: 12 };
+                    }
+                    return { x: 112, scale: 0.82, opacity: 0.62, rotateY: -16, zIndex: 30, y: 12 };
+                  };
+
+                  const renderCard = (idx, pos) => {
+                    const lab = labs[idx];
+                    const isActive = pos === "center";
+
+                    const border = isActive
+                      ? "1.5px solid rgba(4,120,87,0.55)"
+                      : "1.5px solid rgba(4,120,87,0.20)";
+                    const shadow = isActive
+                      ? "0 0 0 1px rgba(52,211,153,0.35) inset, 0 22px 60px rgba(11,61,34,0.12), 0 0 70px rgba(45,212,191,0.20)"
+                      : "0 14px 36px rgba(11,61,34,0.10)";
+
+                    const background = isActive
+                      ? "rgba(255,255,255,0.78)"
+                      : "rgba(255,255,255,0.60)";
+
+                    return (
+                      <motion.div
+                        key={lab.name}
+                        layoutId={`dept-lab-${lab.name}`}
+                        initial={false}
+                        animate={getPos(pos)}
+                        transition={SPRING}
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: "50%",
+                          marginLeft: -CARD_W / 2,
+                          transformStyle: "preserve-3d",
+                          cursor: !isActive ? "pointer" : "default",
+                          pointerEvents: isActive ? "none" : "auto",
+                        }}
+                        onClick={() => {
+                          if (!isActive) setActiveLabIndex(idx);
+                        }}
+                        whileHover={!isActive ? { scale: 0.86, y: 8 } : {}}
+                      >
+                        <div
+                          style={{
+                            ...glassCommon,
+                            border,
+                            background,
+                            boxShadow: shadow,
+                          }}
+                        >
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              background:
+                                "radial-gradient(ellipse at 50% 0%, rgba(52,211,153,0.20) 0%, transparent 60%), linear-gradient(180deg, rgba(236,253,245,0.35) 0%, rgba(255,255,255,0.00) 60%)",
+                              pointerEvents: "none",
+                            }}
+                          />
+
+                          {/* Side cards: subtle placeholder number, no text */}
+                          {!isActive && (
+                            <div
+                              style={{
+                                position: "absolute",
+                                inset: 0,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontFamily: "'Playfair Display', serif",
+                                fontSize: "3rem",
+                                fontWeight: 900,
+                                color: "rgba(4,120,87,0.16)",
+                                pointerEvents: "none",
+                              }}
+                            >
+                              {idx + 1}
+                            </div>
+                          )}
+
+                          {/* Center card: lab name overlay (fade in/out) */}
+                          <AnimatePresence mode="wait">
+                            {isActive && (
+                              <motion.div
+                                key={lab.name}
+                                initial={{ opacity: 0, y: 14 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.22, ease: "easeOut" }}
+                                style={{
+                                  position: "absolute",
+                                  left: 14,
+                                  right: 14,
+                                  bottom: 14,
+                                  padding: "10px 12px",
+                                  borderRadius: 12,
+                                  background: "rgba(255,255,255,0.85)",
+                                  border: "1px solid rgba(4,120,87,0.25)",
+                                  backdropFilter: "blur(10px)",
+                                  WebkitBackdropFilter: "blur(10px)",
+                                  boxShadow:
+                                    "0 10px 30px rgba(11,61,34,0.10), 0 0 40px rgba(45,212,191,0.10)",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontFamily: "'Playfair Display', serif",
+                                    fontWeight: 900,
+                                    color: "#022c22",
+                                    textAlign: "center",
+                                    lineHeight: 1.15,
+                                  }}
+                                >
+                                  {lab.name}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      </motion.div>
+                    );
+                  };
+
+                  return (
+                    <>
+                      {renderCard(leftIdx, "left")}
+                      {renderCard(centerIdx, "center")}
+                      {renderCard(rightIdx, "right")}
+                    </>
+                  );
+                })()}
+              </div>
+            </div>
+
+            {/* Right: compact department info */}
+            <div className="about-text">
+              <h2
+                className="text-emerald-950 font-black"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(1.6rem, 2.6vw, 2.2rem)",
+                  lineHeight: 1.1,
+                  marginBottom: "0.85rem",
+                }}
+              >
+                About the Department
+              </h2>
+              <div className="rule" style={{ marginBottom: "1.2rem" }} />
+
+              <p>
+                The Department hosts advanced laboratories in <strong>Power Systems</strong> and <strong>Control Systems</strong>, alongside a <strong>Smart Grid Lab</strong> built for hands-on learning.
+                It is also home to a <strong>NaMPET-funded Power Electronics Laboratory</strong> that supports modern inverter/control research and practical training.
+                With measurement, computing, and instrumentation facilities, students gain end-to-end exposure from theory to real-time experimentation.
+              </p>
             </div>
           </div>
         </div>
@@ -674,6 +923,118 @@ export default function About() {
           }
         `}</style>
       </section>
+
+      {/* ══════════════════════════════════════════════════
+          MODAL — TARGET PARTICIPANTS AND ELIGIBILITY
+          ══════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {showEligibility && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowEligibility(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1.5rem",
+              background: "rgba(2, 44, 34, 0.4)",
+              backdropFilter: "blur(6px)",
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                background: "linear-gradient(175deg, #ffffff 0%, #f0fdf4 100%)",
+                borderRadius: 24,
+                padding: "2.5rem",
+                width: "100%",
+                maxWidth: 640,
+                boxShadow: "0 24px 48px rgba(2, 44, 34, 0.15)",
+                border: "1px solid rgba(4, 120, 87, 0.2)",
+                position: "relative",
+              }}
+            >
+              <button
+                onClick={() => setShowEligibility(false)}
+                style={{
+                  position: "absolute",
+                  top: "1.5rem",
+                  right: "1.5rem",
+                  background: "white",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "50%",
+                  width: 36,
+                  height: 36,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  color: "#047857",
+                  fontWeight: "bold",
+                }}
+              >
+                ✕
+              </button>
+              
+              <div style={{ marginBottom: "1.5rem" }}>
+                <span className="tag" style={{ margin: "0 0 1rem 0" }}>Target Participants</span>
+                <h3 style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "1.8rem",
+                  fontWeight: 900,
+                  color: "#022c22",
+                  lineHeight: 1.1,
+                  margin: 0
+                }}>
+                  Eligibility & <span style={{ color: "#047857" }}>Requirements</span>
+                </h3>
+              </div>
+
+              <ul style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.25rem"
+              }}>
+                <li style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                  <span style={{ color: "#047857", fontSize: "1.2rem", marginTop: "-2px" }}>•</span>
+                  <span style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, fontWeight: 500 }}>
+                    The FDP is open for faculty members of AICTE approved institutions / Ph.D. Scholars / PG Research Fellow / UG Final Year / Industry professionals.
+                  </span>
+                </li>
+                <li style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                  <span style={{ color: "#047857", fontSize: "1.2rem", marginTop: "-2px" }}>•</span>
+                  <span style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, fontWeight: 500 }}>
+                    Please note that the registration fee is <strong>118 rupees</strong> and the maximum capacity is <strong>200</strong>. Selection would be made on a first come first serve basis.
+                  </span>
+                </li>
+                <li style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                  <span style={{ color: "#047857", fontSize: "1.2rem", marginTop: "-2px" }}>•</span>
+                  <span style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, fontWeight: 500 }}>
+                    Certificates will be awarded at the end of the programme to participants having <strong>more than 80% attendance</strong> and who have secured <strong>more than 70% in the assessment</strong> during the FDP.
+                  </span>
+                </li>
+                <li style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                  <span style={{ color: "#047857", fontSize: "1.2rem", marginTop: "-2px" }}>•</span>
+                  <span style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, fontWeight: 500 }}>
+                    All the participants will be provided with a <strong>welcome kit</strong>, with <strong>high tea</strong> after the Inauguration and valedictory sessions.
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

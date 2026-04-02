@@ -34,7 +34,11 @@ export default function Hero({ onOpenSchedule }) {
           {/* Eyebrow */}
           <div className="hero-eyebrow" style={{ marginBottom: "2rem" }}>
             <span className="pulse" />
-            Five Day Faculty Development Programme · BIT Mesra · 2026
+            Five Day Faculty Development Programme · 2026
+          </div>
+          <div className="hero-eyebrow" style={{ marginBottom: "2rem" }}>
+            <span className="pulse" />
+            Department of Electrical & Electronics Engineering
           </div>
 
           {/* Title */}
@@ -55,7 +59,7 @@ export default function Hero({ onOpenSchedule }) {
               fontWeight: 500,
             }}
           >
-            <strong style={{ color: "#022c22" }}>18 distinguished speakers</strong> from IITs, NITs,
+            <strong style={{ color: "#022c22" }}>Distinguished speakers</strong> from IITs, NITs,
             Politecnico di Milano, Microsoft & global universities.
             Five days of hands-on training in EV systems, smart grids, AI & renewable energy.
           </p>
@@ -66,7 +70,7 @@ export default function Hero({ onOpenSchedule }) {
               { text: "18–22 May 2026", Icon: Calendar },
               { text: "BIT Mesra, Ranchi", Icon: MapPin },
               { text: "18 Speakers", Icon: Users },
-              { text: "Hybrid · Hands-on", Icon: MonitorSmartphone },
+              { text: "Hybrid", Icon: MonitorSmartphone },
             ].map((chip, idx) => {
               const { Icon, text } = chip;
               return (
@@ -75,18 +79,18 @@ export default function Hero({ onOpenSchedule }) {
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: 6,
+                    gap: 8,
                     background: "rgba(255,255,255,0.65)",
                     border: "1.5px solid #c3e8d0",
                     color: "#022c22",
-                    fontSize: "0.78rem",
-                    padding: "0.5rem 1rem",
+                    fontSize: "1rem",
+                    padding: "0.75rem 1.5rem",
                     borderRadius: 50,
                     fontWeight: 700,
                     backdropFilter: "blur(8px)",
                   }}
                 >
-                  <Icon size={14} color="#047857" strokeWidth={2.5} />
+                  <Icon size={18} color="#047857" strokeWidth={2.5} />
                   {text}
                 </span>
               );
